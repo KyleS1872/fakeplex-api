@@ -6,12 +6,12 @@
     <parent>
         <groupId>xyz.fakeplex.api</groupId>
         <artifactId>fakeplex-spring-app</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
         <relativePath>../spring-app.xml</relativePath>
     </parent>
 
     <artifactId>fakeplex-database-common</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -61,13 +61,6 @@
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
             <version>5.0.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <version>${spring.version}</version>
-            <!--            <scope>test</scope>-->
         </dependency>
     </dependencies>
 
