@@ -1,0 +1,8 @@
+spring:
+  banner.location: classpath:/banner.txt
+  profiles.active: default
+logging:
+  pattern:
+    console: "%clr(%5p %d{yyyy-MM-dd HH:mm:ss.SSS}) %clr(%-40.40logger{39}){cyan} %clr(-){faint} %msg%n"
+server:
+  port: 8081

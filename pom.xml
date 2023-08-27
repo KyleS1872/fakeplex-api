@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>xyz.fakeplex.api</groupId>
+    <artifactId>fakeplex-api-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <!-- Common -->
+        <module>Fakeplex.Common</module>
+        <module>Fakeplex.Database.Common</module>
+        <module>Fakeplex.Redis.Common</module>
+        <!-- APIs -->
+        <module>Fakeplex.Accounts</module>
+        <module>Fakeplex.Amplifiers</module>
+        <module>Fakeplex.AntiSpam</module>
+        <module>Fakeplex.Banner</module>
+        <module>Fakeplex.ChatFilter</module>
+        <module>Fakeplex.Enderchest</module>
+        <!-- Other -->
+        <!--        <module>Fakeplex.Discord</module>-->
+        <!--        <module>Fakeplex.ReportSite</module>-->
+        <!--        <module>Fakeplex.Manager</module>-->
+    </modules>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+</project>

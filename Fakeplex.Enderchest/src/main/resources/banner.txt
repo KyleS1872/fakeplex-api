@@ -1,0 +1,9 @@
+${AnsiColor.MAGENTA}
+${AnsiBackground.BLACK} _____          _               _               _   ${AnsiBackground.DEFAULT}
+${AnsiBackground.BLACK}|  ___|        | |             | |             | |  ${AnsiBackground.DEFAULT}
+${AnsiBackground.BLACK}| |__ _ __   __| | ___ _ __ ___| |__   ___  ___| |_ ${AnsiBackground.DEFAULT}
+${AnsiBackground.BLACK}|  __| '_ \ / _` |/ _ \ '__/ __| '_ \ / _ \/ __| __|${AnsiBackground.DEFAULT}
+${AnsiBackground.BLACK}| |__| | | | (_| |  __/ | | (__| | | |  __/\__ \ |_ ${AnsiBackground.DEFAULT}
+${AnsiBackground.BLACK}\____/_| |_|\__,_|\___|_|  \___|_| |_|\___||___/\__|${AnsiBackground.DEFAULT}
+${AnsiBackground.BLACK}(Version: ${project.version} using Spring Boot ${spring-boot.version})${AnsiBackground.DEFAULT}
+${AnsiBackground.DEFAULT}${AnsiColor.DEFAULT}

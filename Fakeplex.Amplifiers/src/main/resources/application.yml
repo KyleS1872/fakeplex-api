@@ -1,0 +1,18 @@
+spring:
+  banner.location: classpath:/banner.txt
+  profiles.active: default
+  jpa:
+    hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    open-in-view: true
+logging:
+  pattern:
+    console: "%clr(%5p %d{yyyy-MM-dd HH:mm:ss.SSS}) %clr(%-40.40logger{39}){cyan} %clr(-){faint} %msg%n"
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  tomcat:
+    uri-encoding: UTF-8
