@@ -6,12 +6,12 @@
     <parent>
         <groupId>xyz.fakeplex.api</groupId>
         <artifactId>fakeplex-spring-app</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
         <relativePath>../spring-app.xml</relativePath>
     </parent>
 
     <artifactId>fakeplex-redis-common</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -32,13 +32,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.data</groupId>-->
-        <!--            <artifactId>spring-data-redis</artifactId>-->
-        <!--            <version>${spring.version}</version>-->
-        <!--        </dependency>-->
-
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>

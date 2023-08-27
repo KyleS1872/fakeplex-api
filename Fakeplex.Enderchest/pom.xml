@@ -6,13 +6,13 @@
     <parent>
         <groupId>xyz.fakeplex.api</groupId>
         <artifactId>fakeplex-spring-app</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
         <relativePath>../spring-app.xml</relativePath>
     </parent>
 
     <name>Enderchest</name>
     <artifactId>fakeplex-enderchest</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -25,7 +25,7 @@
         <dependency>
             <groupId>xyz.fakeplex.api</groupId>
             <artifactId>fakeplex-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
