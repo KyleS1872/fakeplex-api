@@ -5,6 +5,6 @@ VOLUME /tmp
 COPY ./database-config.dat database-config.dat
 COPY ./target/AntiSpam.jar app.jar
 
-EXPOSE 8080
+EXPOSE 8181
 
 ENTRYPOINT ["java","-jar","/app.jar"]

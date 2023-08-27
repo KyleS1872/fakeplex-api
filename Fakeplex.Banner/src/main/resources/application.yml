@@ -5,4 +5,4 @@ logging:
   pattern:
     console: "%clr(%5p %d{yyyy-MM-dd HH:mm:ss.SSS}) %clr(%-40.40logger{39}){cyan} %clr(-){faint} %msg%n"
 server:
-  port: 8080
+  port: 8011

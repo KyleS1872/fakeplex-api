@@ -4,6 +4,6 @@ VOLUME /tmp
 
 COPY ./target/Enderchest.jar app.jar
 
-EXPOSE 8080
+EXPOSE 8010
 
 ENTRYPOINT ["java","-jar","/app.jar"]
