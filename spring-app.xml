@@ -74,9 +74,10 @@
     <build>
         <resources>
             <resource>
-                <filtering>true</filtering>
                 <directory>src/main/resources</directory>
+                <filtering>true</filtering>
                 <includes>
+                    <include>application.yml</include>
                     <include>banner.txt</include>
                 </includes>
             </resource>
