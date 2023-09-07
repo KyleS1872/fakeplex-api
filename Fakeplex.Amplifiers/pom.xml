@@ -6,13 +6,13 @@
     <parent>
         <groupId>xyz.fakeplex.api</groupId>
         <artifactId>fakeplex-spring-app</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2-SNAPSHOT</version>
         <relativePath>../spring-app.xml</relativePath>
     </parent>
 
     <name>Amplifiers</name>
     <artifactId>fakeplex-amplifiers</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -25,17 +25,17 @@
         <dependency>
             <groupId>xyz.fakeplex.api</groupId>
             <artifactId>fakeplex-common</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>xyz.fakeplex.api</groupId>
             <artifactId>fakeplex-database-common</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>xyz.fakeplex.api</groupId>
             <artifactId>fakeplex-redis-common</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.2-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

@@ -6,7 +6,7 @@
 
     <groupId>xyz.fakeplex.api</groupId>
     <artifactId>fakeplex-api-parent</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
         <!-- Common -->

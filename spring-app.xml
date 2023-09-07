@@ -6,12 +6,12 @@
     <parent>
         <groupId>xyz.fakeplex.api</groupId>
         <artifactId>fakeplex-api-parent</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2-SNAPSHOT</version>
         <relativePath>pom.xml</relativePath>
     </parent>
 
     <artifactId>fakeplex-spring-app</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -67,7 +67,7 @@
         <dependency>
             <groupId>com.github.kyles1872</groupId>
             <artifactId>JSON-java</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.2-SNAPSHOT</version>
         </dependency>
 
         <!-- JAXB -->
