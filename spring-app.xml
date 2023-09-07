@@ -67,7 +67,7 @@
         <dependency>
             <groupId>com.github.kyles1872</groupId>
             <artifactId>JSON-java</artifactId>
-            <version>1.0.2-SNAPSHOT</version>
+            <version>1.0.1</version>
         </dependency>
 
         <!-- JAXB -->
