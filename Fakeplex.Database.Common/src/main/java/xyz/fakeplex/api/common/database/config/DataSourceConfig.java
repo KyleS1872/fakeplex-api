@@ -1,6 +1,7 @@
 package xyz.fakeplex.api.common.database.config;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -110,10 +111,11 @@ public class DataSourceConfig {
    * @return LocalContainerEntityManagerFactoryBean
    */
   @Bean
-  public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+  public LocalContainerEntityManagerFactoryBean entityManagerFactory(
+      @Value("${spring.jpa.packages-to-scan:xyz.fakeplex.api}") String packagesToScan) {
     LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
     em.setDataSource(getDataSource());
-    em.setPackagesToScan("xyz.fakeplex.api");
+    em.setPackagesToScan(packagesToScan);
     em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
     em.setJpaProperties(getHibernateProperties());
     return em;
