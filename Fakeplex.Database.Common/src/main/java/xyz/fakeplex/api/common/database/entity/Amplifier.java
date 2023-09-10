@@ -23,7 +23,7 @@ public class Amplifier {
   @Column(name = "uuid", nullable = false, length = 50)
   private String uuid;
 
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, optional = false)
   @JoinColumn(name = "accountId", nullable = false, referencedColumnName = "id")
   private Account account;
 

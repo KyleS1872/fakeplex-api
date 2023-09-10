@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
@@ -13,6 +12,7 @@ import java.io.File;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * @author Kyle
@@ -114,9 +114,22 @@ public class DataSourceConfig {
     LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
     em.setDataSource(getDataSource());
     em.setPackagesToScan("xyz.fakeplex.api");
-    JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-    em.setJpaVendorAdapter(vendorAdapter);
+    em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+    em.setJpaProperties(getHibernateProperties());
     return em;
+  }
+
+  /**
+   * Provides Hibernate properties
+   *
+   * @return Hibernate properties.
+   */
+  private Properties getHibernateProperties() {
+    Properties hibernateProperties = new Properties();
+    hibernateProperties.setProperty(
+        "hibernate.physical_naming_strategy",
+        "org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl");
+    return hibernateProperties;
   }
 
   /**

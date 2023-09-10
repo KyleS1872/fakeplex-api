@@ -16,11 +16,11 @@ public class AccountTask {
   @Column(name = "id", nullable = false)
   private Integer id;
 
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, optional = false)
   @JoinColumn(name = "accountId", nullable = false, referencedColumnName = "id")
   private Account account;
 
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, optional = false)
   @JoinColumn(name = "taskId", nullable = false, referencedColumnName = "id")
   private Task task;
 }

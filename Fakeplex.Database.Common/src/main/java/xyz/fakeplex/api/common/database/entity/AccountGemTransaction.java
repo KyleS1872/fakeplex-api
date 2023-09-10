@@ -16,7 +16,7 @@ public class AccountGemTransaction {
   @Column(name = "id", nullable = false)
   private Integer id;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
   @JoinColumn(name = "accountId", referencedColumnName = "id")
   private Account account;
 

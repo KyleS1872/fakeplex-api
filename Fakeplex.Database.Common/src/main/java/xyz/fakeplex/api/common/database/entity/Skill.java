@@ -22,7 +22,7 @@ public class Skill {
   @Column(name = "level", nullable = false)
   private Integer level;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
   @JoinColumn(name = "gameSalesPackageId", referencedColumnName = "id", nullable = false)
   private GameSalesPackage gameSalesPackage;
 }
