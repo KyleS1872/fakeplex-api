@@ -16,7 +16,7 @@ public class AccountPunishment {
   @Column(name = "id", nullable = false)
   private Integer id;
 
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, optional = false)
   @JoinColumn(name = "target", nullable = false, referencedColumnName = "id")
   private Account target;
 
