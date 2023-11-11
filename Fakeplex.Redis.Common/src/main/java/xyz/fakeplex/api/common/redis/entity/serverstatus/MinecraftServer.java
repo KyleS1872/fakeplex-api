@@ -2,7 +2,7 @@ package xyz.fakeplex.api.common.redis.entity.serverstatus;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.redis.core.RedisHash;
+import xyz.fakeplex.api.common.redis.annotation.RedisString;
 import xyz.fakeplex.api.common.redis.type.RedisStringObject;
 
 /**
@@ -10,7 +10,7 @@ import xyz.fakeplex.api.common.redis.type.RedisStringObject;
  */
 @Getter
 @Setter
-@RedisHash("serverstatus.minecraft.US")
+@RedisString("serverstatus.minecraft.US")
 public class MinecraftServer extends RedisStringObject {
 
   private String name;
