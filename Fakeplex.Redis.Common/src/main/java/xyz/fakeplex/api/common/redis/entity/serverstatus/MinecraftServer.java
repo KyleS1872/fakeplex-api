@@ -1,9 +1,11 @@
 package xyz.fakeplex.api.common.redis.entity.serverstatus;
 
+import com.google.gson.JsonSyntaxException;
 import lombok.Getter;
 import lombok.Setter;
 import xyz.fakeplex.api.common.redis.annotation.RedisString;
 import xyz.fakeplex.api.common.redis.type.RedisStringObject;
+import xyz.fakeplex.api.common.redis.util.RedisUtils;
 
 /**
  * @author Kyle
@@ -55,5 +57,60 @@ public class MinecraftServer extends RedisStringObject {
     this.donorsOnline = donorsOnline;
     this.startUpDate = startUpDate;
     this.currentTime = currentTime;
+  }
+
+  public GameInfo getGameInfo() {
+    try {
+      return RedisUtils.gson.fromJson(motd, GameInfo.class);
+    } catch (JsonSyntaxException e) {
+      return null;
+    }
+  }
+
+  @Getter
+  public static class GameInfo {
+
+    private final String game;
+    private final String mode;
+    private final String map;
+    private final int timer;
+    private final String[] votingOn;
+    private final String hostRank;
+    private final GameDisplayStatus status;
+    private final GameJoinStatus joinable;
+
+    public GameInfo(
+        String game,
+        String mode,
+        String map,
+        int timer,
+        String[] votingOn,
+        String hostRank,
+        GameDisplayStatus status,
+        GameJoinStatus joinable) {
+      this.game = game;
+      this.mode = mode;
+      this.map = map;
+      this.timer = timer;
+      this.votingOn = votingOn;
+      this.hostRank = hostRank;
+      this.status = status;
+      this.joinable = joinable;
+    }
+
+    public enum GameDisplayStatus {
+      ALWAYS_OPEN,
+      STARTING,
+      VOTING,
+      WAITING,
+      IN_PROGRESS,
+      CLOSING
+    }
+
+    public enum GameJoinStatus {
+      OPEN,
+      RANKS_ONLY,
+      CLOSED
+    }
   }
 }

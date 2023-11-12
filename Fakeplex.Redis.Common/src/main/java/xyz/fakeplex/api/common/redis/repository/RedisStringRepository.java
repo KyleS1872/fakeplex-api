@@ -1,7 +1,5 @@
 package xyz.fakeplex.api.common.redis.repository;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -10,7 +8,7 @@ import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.stereotype.Component;
 import xyz.fakeplex.api.common.redis.annotation.RedisString;
 import xyz.fakeplex.api.common.redis.type.RedisStringObject;
-import xyz.fakeplex.api.common.redis.util.RedisFieldNamingStrategy;
+import xyz.fakeplex.api.common.redis.util.RedisUtils;
 
 /**
  * @author Kyle
@@ -18,8 +16,6 @@ import xyz.fakeplex.api.common.redis.util.RedisFieldNamingStrategy;
 @Slf4j
 @Component
 public class RedisStringRepository implements RedisStringRepositoryInterface {
-
-  private final Gson gson;
 
   private final RedisTemplate<String, String> redisTemplate;
   private final ValueOperations<String, String> valueOperations;
@@ -29,16 +25,11 @@ public class RedisStringRepository implements RedisStringRepositoryInterface {
     this.redisTemplate = redisTemplate;
     valueOperations = redisTemplate.opsForValue();
     setOperations = redisTemplate.opsForZSet();
-    gson =
-        new GsonBuilder()
-            .setFieldNamingStrategy(new RedisFieldNamingStrategy())
-            .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX")
-            .create();
   }
 
   @Override
   public void save(RedisStringObject redisStringObject, int timeout) {
-    String json = gson.toJson(redisStringObject);
+    String json = RedisUtils.gson.toJson(redisStringObject);
 
     if (json.isEmpty()) return;
 
@@ -47,7 +38,9 @@ public class RedisStringRepository implements RedisStringRepositoryInterface {
 
     valueOperations.set(key, json);
     setOperations.add(
-        keySpace, redisStringObject.getIdentifier(), (System.currentTimeMillis() / 1000) + timeout);
+        keySpace,
+        redisStringObject.getIdentifier(),
+        ((double) System.currentTimeMillis() / 1000) + timeout);
   }
 
   @Override
@@ -60,7 +53,7 @@ public class RedisStringRepository implements RedisStringRepositoryInterface {
 
       String json = valueOperations.get(key);
       JSONObject jsonObject = new JSONObject(json);
-      return gson.fromJson(jsonObject.toString(), classType);
+      return RedisUtils.gson.fromJson(jsonObject.toString(), classType);
     } catch (Exception e) {
       log.debug(e.getMessage());
       return null;
