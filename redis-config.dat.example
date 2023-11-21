@@ -1,1 +1,1 @@
-127.0.0.1 6379 MASTER DefaultConnection
+host.docker.internal 6379 MASTER DefaultConnection

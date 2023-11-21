@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  accounts: &base
+    image: eclipse-temurin:11-jdk-alpine
+    command: sh -c "cd /app/ > /dev/null 2>&1 && java -jar app.jar"
+    ports: [ "8080:8080" ]
+    volumes:
+      - ./Fakeplex.Accounts/target/Accounts.jar:/app/app.jar
+      - ./database-config.dat:/app/database-config.dat
+  amplifiers:
+    <<: *base
+    ports: [ "7979:7979" ]
+    volumes:
+      - ./Fakeplex.Amplifiers/target/Amplifiers.jar:/app/app.jar
+      - ./database-config.dat:/app/database-config.dat
+      - ./redis-config.dat:/app/redis-config.dat
+  antispam:
+    <<: *base
+    ports: [ "8181:8181" ]
+    volumes:
+      - ./Fakeplex.AntiSpam/target/AntiSpam.jar:/app/app.jar
+      - ./database-config.dat:/app/database-config.dat
+  banner:
+    <<: *base
+    ports: [ "8011:8011" ]
+    volumes:
+      - ./Fakeplex.Banner/target/Banner.jar:/app/app.jar
+  chatfilter:
+    <<: *base
+    ports: [ "8003:8003" ]
+    volumes:
+      - ./Fakeplex.ChatFilter/target/ChatFilter.jar:/app/app.jar
+  enderchest:
+    <<: *base
+    ports: [ "8010:8010" ]
+    volumes:
+      - ./Fakeplex.Enderchest/target/Enderchest.jar:/app/app.jar
+      - ./maps:/home/mineplex/update/maps

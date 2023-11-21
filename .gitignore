@@ -8,6 +8,7 @@ Fakeplex.Discord/
 Fakeplex.ReportSite/
 Fakeplex.Manager/
 
+maps/
 database-config.dat
 redis-config.dat
 
