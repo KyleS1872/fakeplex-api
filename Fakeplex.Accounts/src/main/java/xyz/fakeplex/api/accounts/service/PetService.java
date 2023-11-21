@@ -48,59 +48,36 @@ public class PetService {
   }
 
   /**
-   * Add a Pet to an Account
+   * Add or Update a Pet to an Account
    *
    * @param petChangeToken Pet Token
    * @return Custom Response
    */
-  public CustomResponse addPet(PetChangeToken petChangeToken) {
+  public CustomResponse changePet(PetChangeToken petChangeToken) {
     Account account =
         accountDatabase.getAccountRepository().findOneByAccountId(petChangeToken.AccountId);
 
     if (account == null) return CustomResponse.Failed;
 
-    if (accountDatabase
+    AccountPet pet =
+        accountDatabase
             .getAccountPetRepository()
-            .findPetTypeByAccountId(account.getId(), petChangeToken.PetType)
-        != null) return CustomResponse.Failed;
+            .findPetTypeByAccountId(account.getId(), petChangeToken.PetType);
 
     try {
-      accountDatabase
-          .getAccountPetRepository()
-          .insertPet(account.getId(), petChangeToken.PetType, petChangeToken.PetName);
+      if (pet == null)
+        accountDatabase
+            .getAccountPetRepository()
+            .insertPet(account.getId(), petChangeToken.PetType, petChangeToken.PetName);
+      else
+        accountDatabase
+            .getAccountPetRepository()
+            .updatePet(petChangeToken.AccountId, petChangeToken.PetType, petChangeToken.PetName);
     } catch (Exception e) {
       log.debug(e.getMessage());
       return CustomResponse.Failed;
     }
 
     return CustomResponse.Success;
-  }
-
-  /**
-   * Update a Pet associated to an Account
-   *
-   * @param petChangeToken Pet Token
-   * @return Custom Response
-   */
-  public CustomResponse updatePet(PetChangeToken petChangeToken) {
-    Account account =
-        accountDatabase.getAccountRepository().findOneByAccountId(petChangeToken.AccountId);
-
-    if (account == null) return CustomResponse.Failed;
-
-    if (accountDatabase
-            .getAccountPetRepository()
-            .findPetTypeByAccountId(account.getId(), petChangeToken.PetType)
-        == null) return CustomResponse.Failed;
-
-    try {
-      accountDatabase
-          .getAccountPetRepository()
-          .updatePet(petChangeToken.AccountId, petChangeToken.PetType, petChangeToken.PetName);
-      return CustomResponse.Success;
-    } catch (Exception e) {
-      log.debug(e.getMessage());
-      return CustomResponse.Failed;
-    }
   }
 }

@@ -14,7 +14,7 @@ public class AccountPet {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "petId", nullable = false)
-  private Integer id;
+  private Integer id; // TODO: Use Type and Account as Key
 
   @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, optional = false)
   @JoinColumn(name = "accountId", nullable = false, referencedColumnName = "id")

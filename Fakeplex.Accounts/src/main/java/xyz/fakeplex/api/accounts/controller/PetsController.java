@@ -28,7 +28,7 @@ public class PetsController {
       consumes = MediaType.APPLICATION_JSON_VALUE,
       produces = MediaType.TEXT_PLAIN_VALUE)
   public ResponseEntity<String> postAddPet(@RequestBody PetChangeToken petChangeToken) {
-    return ResponseEntity.ok(petService.addPet(petChangeToken).toString());
+    return ResponseEntity.ok(petService.changePet(petChangeToken).toString());
   }
 
   @PostMapping(
@@ -36,6 +36,6 @@ public class PetsController {
       consumes = MediaType.APPLICATION_JSON_VALUE,
       produces = MediaType.TEXT_PLAIN_VALUE)
   public ResponseEntity<String> postUpdatePet(@RequestBody PetChangeToken petChangeToken) {
-    return ResponseEntity.ok(petService.updatePet(petChangeToken).toString());
+    return ResponseEntity.ok(petService.changePet(petChangeToken).toString());
   }
 }
