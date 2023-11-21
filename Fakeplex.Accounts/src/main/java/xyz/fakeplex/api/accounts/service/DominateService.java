@@ -25,8 +25,10 @@ public class DominateService {
   }
 
   /**
-   * @param skillTokens
-   * @return
+   * Retrieves List of Skill Tokens as Database Entities
+   *
+   * @param skillTokens List of Skill Token
+   * @return List of Skill Token
    */
   public List<SkillToken> getSkills(List<SkillToken> skillTokens) {
     ArrayList<SkillToken> skills = new ArrayList<>();
